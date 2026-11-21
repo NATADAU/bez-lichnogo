@@ -1,0 +1,53 @@
+name: Сборка и публикация «Без личного»
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Получить проект
+        uses: actions/checkout@v4
+      - name: Подготовить Node.js
+        uses: actions/setup-node@v4
+        with:
+          # pdfjs-dist 6.x требует Node.js >= 22.13
+          node-version: '22'
+      - name: Загрузить фиксированную версию PDF.js для сборки
+        run: npm install --no-save --ignore-scripts --no-audit --no-fund pdfjs-dist@6.5.438
+      - name: Подготовить автономный сайт
+        run: |
+          mkdir -p site/vendor
+          cp index.html site/index.html
+          cp app.js site/app.js
+          cp node_modules/pdfjs-dist/build/pdf.min.mjs site/vendor/pdf.min.mjs
+          cp node_modules/pdfjs-dist/build/pdf.worker.min.mjs site/vendor/pdf.worker.min.mjs
+          test -s site/vendor/pdf.min.mjs
+          test -s site/vendor/pdf.worker.min.mjs
+          test -s site/app.js
+          # Запрет внешних URL в публикуемых файлах приложения (CSP meta и локальные пути допустимы)
+          if grep -E "https?://[^'\"]+" site/index.html site/app.js; then
+            echo 'Ошибка: внешний адрес в файлах сайта'
+            exit 1
+          fi
+          echo 'Все зависимости сайта локальные (PDF.js 6.5.438).'
+      - name: Настроить GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Загрузить сайт для публикации
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Опубликовать
+        id: deployment
+        uses: actions/deploy-pages@v4
