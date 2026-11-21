@@ -3,16 +3,117 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; worker-src 'self'; connect-src 'none'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; font-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
 <title>Без личного</title>
 <style>
-:root{font-family:Inter,'Segoe UI',Arial,sans-serif;color:#243c3d;background:#eaf0ee}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer;border:1px solid #cfddd9;background:#fff;color:#315d58;border-radius:10px;padding:10px 12px;font-weight:600;font-size:13px}button:hover:not(:disabled){background:#edf7f4}button:disabled{opacity:.45;cursor:not-allowed}.primary{background:#317b72;color:#fff;border-color:#317b72}.primary:hover:not(:disabled){background:#27675f}button.active{background:#d4e9e4;border-color:#74a9a0;color:#205b52}.app{max-width:1430px;margin:auto;padding:20px 20px 45px}.heading{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:18px}.brand{display:flex;align-items:center;gap:13px}.brandmark{width:47px;height:47px;display:grid;place-items:center;background:#d1e7e1;border-radius:14px;font-size:23px}h1{font-size:25px;letter-spacing:-.8px;margin:0}.heading p{font-size:13px;color:#66827c;margin:4px 0 0}.tag{font-size:12px;background:#f8fcfa;border:1px solid #cbded8;padding:8px 12px;border-radius:40px;color:#4a7770}.layout{display:grid;grid-template-columns:minmax(0,1fr) 306px;gap:16px;align-items:start}.card,.sidebar{background:#fff;border-radius:18px;border:1px solid #dbe7e3;box-shadow:0 10px 30px #3463560b;overflow:hidden}.topbar{padding:13px 15px;border-bottom:1px solid #e5edeb;display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between}.filename{font-size:14px;font-weight:700;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.actions{display:flex;gap:8px;flex-wrap:wrap}.file-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid #cfddd9;background:white;border-radius:10px;padding:10px 12px;color:#315d58;font-weight:600;font-size:13px;cursor:pointer}.file-btn input{display:none}.workspace{background:#dfe8e5;overflow:auto;min-height:480px;padding:22px;display:flex;align-items:flex-start;justify-content:center}.paper{position:relative;width:min(100%,740px);background:#fff;box-shadow:0 15px 33px #2c524234;touch-action:none;line-height:0;user-select:none}.paper canvas{width:100%;height:auto;display:block;pointer-events:none}.editlayer{position:absolute;inset:0;cursor:crosshair}.region{position:absolute;outline:1px solid #5b91868a;cursor:move;touch-action:none}.region.selected{outline:2px solid #238377;z-index:2}.handle{position:absolute;background:#fff;border:2px solid #238377;border-radius:2px;width:12px;height:12px;z-index:3;display:none;box-shadow:0 1px 4px #2346}.selected .handle{display:block}.handle[data-dir=n]{left:50%;top:0;transform:translate(-50%,-50%);cursor:ns-resize}.handle[data-dir=s]{left:50%;bottom:0;transform:translate(-50%,50%);cursor:ns-resize}.handle[data-dir=e]{right:0;top:50%;transform:translate(50%,-50%);cursor:ew-resize}.handle[data-dir=w]{left:0;top:50%;transform:translate(-50%,-50%);cursor:ew-resize}.handle[data-dir=nw]{left:0;top:0;transform:translate(-50%,-50%);cursor:nwse-resize}.handle[data-dir=se]{right:0;bottom:0;transform:translate(50%,50%);cursor:nwse-resize}.handle[data-dir=ne]{right:0;top:0;transform:translate(50%,-50%);cursor:nesw-resize}.handle[data-dir=sw]{left:0;bottom:0;transform:translate(-50%,50%);cursor:nesw-resize}.draft{position:absolute;border:2px dashed #258b7d;background:#afd7cd3d;pointer-events:none}.footer{padding:11px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center;font-size:12px;color:#718a82}.pager{display:flex;align-items:center;gap:8px}.pager strong{font-size:12px;min-width:100px;text-align:center}.sidebar{padding:18px}.sidebar h2{font-size:19px;letter-spacing:-.4px;margin:0 0 6px}.sub{font-size:12px;color:#728980;line-height:1.5;margin:0 0 16px}.label{font-weight:650;font-size:13px;margin:12px 0 8px;display:flex;justify-content:space-between;align-items:center}.modes{display:grid;grid-template-columns:1fr 1fr;gap:8px}.modes button{padding:13px 7px}.slider{width:100%;accent-color:#317b72}.details{display:flex;gap:9px;align-items:center;margin:8px 0}.swatch{width:45px;height:40px;border:1px solid #a7b8b2;border-radius:8px;cursor:pointer}.colorcode{font-size:12px;color:#547067;font-variant-numeric:tabular-nums}.hint{font-size:12px;color:#738981;line-height:1.55;margin:9px 0}.field{display:flex;gap:8px;align-items:center}.stack{display:grid;gap:8px}.stack button{width:100%}.line{height:1px;background:#e8efec;margin:17px 0}.note{background:#fff4e7;border:1px solid #efddc3;color:#825833;padding:12px;border-radius:10px;font-size:12px;line-height:1.55;margin-top:14px}.goodnote{background:#eef8f3;border:1px solid #cce8d7;color:#356e57;padding:11px;border-radius:10px;font-size:12px;line-height:1.5;margin-top:12px}#status{min-height:16px;color:#4d746c;font-size:12px;line-height:1.5;margin-top:9px}.loading{position:fixed;inset:0;background:#173d3d73;display:none;align-items:center;justify-content:center;z-index:40}.loading.visible{display:flex}.loading>div{background:white;border-radius:16px;padding:25px;font-size:14px;max-width:300px;text-align:center}.hidden{display:none!important}input[type=checkbox]{accent-color:#287c70} @media(max-width:900px){.layout{grid-template-columns:1fr}.app{padding:12px}.workspace{min-height:330px;padding:10px}.tag{display:none}}@media(max-width:550px){.heading h1{font-size:20px}.topbar{align-items:flex-start}.filename{width:100%}.footer{flex-wrap:wrap}.handle{width:15px;height:15px}}
+/* ЦЛП UI Kit: основной акцент #019BAB; шрифт Montserrat с системным запасным рядом (без CDN). */
+:root{
+  --clp-bg:#F8F8F8;
+  --clp-text:#2A2A2A;
+  --clp-muted:#626261;
+  --clp-accent:#019BAB;
+  --clp-accent-strong:#01818f; /* заливка CTA и ссылки: AA ≥ 4.5 к белому */
+  --clp-accent-hover:#01727e;
+  --clp-accent-soft:#5BBEC9;
+  --clp-tint:#C7E9ED;
+  --clp-warn:#F8A600;
+  --clp-ok:#04A634;
+  --clp-surface:#ffffff;
+  --clp-border:#d7e4e6;
+  --clp-workspace:#e8eef0;
+  --font:"Montserrat","Segoe UI",Tahoma,sans-serif;
+  font-family:var(--font);
+  color:var(--clp-text);
+  background:var(--clp-bg);
+}
+*{box-sizing:border-box}
+body{margin:0;font-weight:400;background:var(--clp-bg);color:var(--clp-text)}
+button,input,select{font:inherit}
+button{
+  cursor:pointer;
+  border:1px solid var(--clp-border);
+  background:var(--clp-surface);
+  color:var(--clp-text);
+  border-radius:10px;
+  padding:10px 12px;
+  font-weight:600;
+  font-size:13px;
+}
+button:hover:not(:disabled){background:var(--clp-tint);border-color:var(--clp-accent-soft);color:var(--clp-text)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.primary{background:var(--clp-accent-strong);color:#fff;border-color:var(--clp-accent-strong)}
+.primary:hover:not(:disabled){background:var(--clp-accent-hover);border-color:var(--clp-accent-hover);color:#fff}
+button.active{background:var(--clp-tint);border-color:var(--clp-accent);color:var(--clp-text)}
+.app{max-width:1430px;margin:auto;padding:20px 20px 45px}
+.heading{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:13px}
+.brandmark{width:47px;height:47px;display:grid;place-items:center;background:var(--clp-tint);color:var(--clp-accent);border-radius:14px;font-size:23px;font-weight:600}
+h1{font-size:25px;letter-spacing:-.8px;margin:0;font-weight:600;color:var(--clp-text)}
+.heading p{font-size:13px;color:var(--clp-muted);margin:4px 0 0;font-weight:400}
+.tag{font-size:12px;background:var(--clp-surface);border:1px solid var(--clp-border);padding:8px 12px;border-radius:40px;color:var(--clp-muted);font-weight:600}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 306px;gap:16px;align-items:start}
+.card,.sidebar{background:var(--clp-surface);border-radius:18px;border:1px solid var(--clp-border);box-shadow:0 10px 30px #2a2a2a0d;overflow:hidden}
+.topbar{padding:13px 15px;border-bottom:1px solid var(--clp-border);display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between}
+.filename{font-size:14px;font-weight:600;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--clp-text)}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.file-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--clp-border);background:var(--clp-surface);border-radius:10px;padding:10px 12px;color:var(--clp-text);font-weight:600;font-size:13px;cursor:pointer}
+.file-btn:hover{background:var(--clp-tint);border-color:var(--clp-accent-soft)}
+.file-btn input{display:none}
+.workspace{background:var(--clp-workspace);overflow:auto;min-height:480px;padding:22px;display:flex;align-items:flex-start;justify-content:center}
+.paper{position:relative;width:min(100%,740px);background:#fff;box-shadow:0 15px 33px #2a2a2a24;touch-action:none;line-height:0;user-select:none}
+.paper canvas{width:100%;height:auto;display:block;pointer-events:none}
+.editlayer{position:absolute;inset:0;cursor:crosshair}
+.region{position:absolute;outline:1px solid #019bab8a;cursor:move;touch-action:none}
+.region.selected{outline:2px solid var(--clp-accent);z-index:2}
+.handle{position:absolute;background:#fff;border:2px solid var(--clp-accent);border-radius:2px;width:12px;height:12px;z-index:3;display:none;box-shadow:0 1px 4px #2a2a2a33}
+.selected .handle{display:block}
+.handle[data-dir=n]{left:50%;top:0;transform:translate(-50%,-50%);cursor:ns-resize}
+.handle[data-dir=s]{left:50%;bottom:0;transform:translate(-50%,50%);cursor:ns-resize}
+.handle[data-dir=e]{right:0;top:50%;transform:translate(50%,-50%);cursor:ew-resize}
+.handle[data-dir=w]{left:0;top:50%;transform:translate(-50%,-50%);cursor:ew-resize}
+.handle[data-dir=nw]{left:0;top:0;transform:translate(-50%,-50%);cursor:nwse-resize}
+.handle[data-dir=se]{right:0;bottom:0;transform:translate(50%,50%);cursor:nwse-resize}
+.handle[data-dir=ne]{right:0;top:0;transform:translate(50%,-50%);cursor:nesw-resize}
+.handle[data-dir=sw]{left:0;bottom:0;transform:translate(-50%,50%);cursor:nesw-resize}
+.draft{position:absolute;border:2px dashed var(--clp-accent);background:#c7e9ed66;pointer-events:none}
+.footer{padding:11px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center;font-size:12px;color:var(--clp-muted)}
+.pager{display:flex;align-items:center;gap:8px}
+.pager strong{font-size:12px;min-width:100px;text-align:center;color:var(--clp-text);font-weight:600}
+.sidebar{padding:18px}
+.sidebar h2{font-size:19px;letter-spacing:-.4px;margin:0 0 6px;font-weight:600;color:var(--clp-text)}
+.sub{font-size:12px;color:var(--clp-muted);line-height:1.5;margin:0 0 16px}
+.label{font-weight:600;font-size:13px;margin:12px 0 8px;display:flex;justify-content:space-between;align-items:center;color:var(--clp-text)}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.modes button{padding:13px 7px}
+.slider{width:100%;accent-color:var(--clp-accent)}
+.details{display:flex;gap:9px;align-items:center;margin:8px 0}
+.swatch{width:45px;height:40px;border:1px solid var(--clp-border);border-radius:8px;cursor:pointer}
+.colorcode{font-size:12px;color:var(--clp-muted);font-variant-numeric:tabular-nums;font-weight:600}
+.hint{font-size:12px;color:var(--clp-muted);line-height:1.55;margin:9px 0}
+.field{display:flex;gap:8px;align-items:center}
+.stack{display:grid;gap:8px}
+.stack button{width:100%}
+.line{height:1px;background:var(--clp-border);margin:17px 0}
+.note{background:#fff8eb;border:1px solid #f8a60066;color:#7a5200;padding:12px;border-radius:10px;font-size:12px;line-height:1.55;margin-top:14px}
+.note strong{color:#6a4600;font-weight:600}
+.goodnote{background:#eefaf1;border:1px solid #04a63444;color:#046b24;padding:11px;border-radius:10px;font-size:12px;line-height:1.5;margin-top:12px}
+#status{min-height:16px;color:var(--clp-muted);font-size:12px;line-height:1.5;margin-top:9px}
+#retryArea{font-size:12px;line-height:1.5;color:var(--clp-muted);margin-top:6px}
+#retryLink{color:var(--clp-accent-strong);text-decoration:underline;font-weight:600}
+#retryLink:hover{color:var(--clp-accent-hover)}
+.loading{position:fixed;inset:0;background:#2a2a2a73;display:none;align-items:center;justify-content:center;z-index:40}
+.loading.visible{display:flex}
+.loading>div{background:var(--clp-surface);color:var(--clp-text);border-radius:16px;padding:25px;font-size:14px;max-width:300px;text-align:center;font-weight:600;border:1px solid var(--clp-border)}
+.hidden{display:none!important}
+input[type=checkbox]{accent-color:var(--clp-accent)}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.app{padding:12px}.workspace{min-height:330px;padding:10px}.tag{display:none}}
+@media(max-width:550px){.heading h1{font-size:20px}.topbar{align-items:flex-start}.filename{width:100%}.footer{flex-wrap:wrap}.handle{width:15px;height:15px}}
 
-/* Пипетка: заметный режим выбора, лупа и единая область клика */
+/* Пипетка: заметный режим выбора */
 .paper.picking .editlayer,.paper.picking .editlayer *{cursor:crosshair!important}
-.paper.picking .editlayer{outline:3px solid #2a8b7b;outline-offset:3px}
-#pickerPreview{position:fixed;z-index:80;pointer-events:none;display:none;align-items:center;gap:9px;padding:8px 10px;border-radius:12px;background:#fff;box-shadow:0 5px 24px #163b3b40;border:1px solid #a7c7bd;line-height:1.2;font-size:12px;color:#244d47;white-space:nowrap}
+.paper.picking .editlayer{outline:3px solid var(--clp-accent);outline-offset:3px}
+#pickerPreview{position:fixed;z-index:80;pointer-events:none;display:none;align-items:center;gap:9px;padding:8px 10px;border-radius:12px;background:var(--clp-surface);box-shadow:0 5px 24px #2a2a2a33;border:1px solid var(--clp-border);line-height:1.2;font-size:12px;color:var(--clp-text);white-space:nowrap;font-weight:400}
 #pickerPreview.visible{display:flex}
-#pickerSample{width:37px;height:37px;border-radius:8px;border:1px solid #9aaca7;flex-shrink:0}
-#pickerInstruction{font-size:12px;font-weight:650;color:#1b7266;margin-top:7px}
-#pickerHint.picking{color:#236d62;font-weight:600}
+#pickerSample{width:37px;height:37px;border-radius:8px;border:1px solid var(--clp-border);flex-shrink:0}
+#pickerInstruction{font-size:12px;font-weight:600;color:var(--clp-accent);margin-top:7px}
+#pickerHint.picking{color:var(--clp-accent);font-weight:600}
 </style></head><body><div class="app">
 <header class="heading"><div class="brand"><div class="brandmark">◫</div><div><h1>Без личного</h1><p>Frost Blur · цветная плашка · точные границы</p></div></div><span class="tag">Локальная обработка</span></header>
 <div class="layout"><section class="card"><div class="topbar"><div class="filename" id="filename">Демонстрационная ведомость</div><div class="actions"><button type="button" id="demo">Пример</button><label class="file-btn">Открыть PDF / изображение<input type="file" id="upload" accept="application/pdf,.pdf,image/png,image/jpeg,image/webp"></label></div></div>
@@ -23,7 +124,7 @@
 <div id="frostControls"><div class="label"><label for="blur">Сила размытия</label><span id="blurValue">18 px</span></div><input class="slider" id="blur" type="range" min="2" max="55" value="18"><div class="hint">Настоящее размытие пикселей исходной страницы. Минимум 2 px.</div></div>
 <div id="solidControls" class="hidden"><div class="label">Цвет плашки</div><div class="details"><input type="color" class="swatch" id="color" value="#f7f7f4" aria-label="Цвет плашки"><span class="colorcode" id="hex">#F7F7F4</span><button type="button" id="pipette">◉ Пипетка</button></div><div class="hint" id="pickerHint">Нажми «Пипетка», наведи на чистый участок бумаги и щёлкни один раз. Esc — отмена.</div></div>
 <div class="line"></div><div class="stack"><button type="button" id="add">+ Добавить область</button><button type="button" id="remove">Удалить выбранную</button><button type="button" id="copy">Скопировать области на все страницы</button><button type="button" id="original">Показать оригинал: выкл.</button></div>
-<div class="line"></div><button type="button" class="primary" style="width:100%" id="save">↓ Скачать PDF</button><a id="downloadReady" class="hidden" download tabindex="-1" aria-hidden="true"></a><div id="status" role="status"></div><div id="retryArea" class="hidden" style="font-size:12px;line-height:1.5;color:#53756e;margin-top:6px">Если файл не появился: <a id="retryLink" href="#" style="color:#245d4e;text-decoration:underline">скачать повторно</a>.</div>
+<div class="line"></div><button type="button" class="primary" style="width:100%" id="save">↓ Скачать PDF</button><a id="downloadReady" class="hidden" download tabindex="-1" aria-hidden="true"></a><div id="status" role="status"></div><div id="retryArea" class="hidden">Если файл не появился: <a id="retryLink" href="#">скачать повторно</a>.</div>
 <div class="goodnote">При экспорте цветная плашка заменяет пиксели внутри выбранного прямоугольника. Перед передачей файла обязательно проверьте все страницы и края областей.</div>
 <div class="note"><strong>Внимание:</strong> Frost — визуальное размытие, а не безопасное обезличивание. Размытый документ может раскрывать данные. Для передачи третьим лицам используй полностью непрозрачные цветные плашки.</div>
 <div class="hint">Документы обрабатываются на устройстве. Библиотека PDF.js загружается из папки проекта, не из интернета. Для работы PDF нужны файлы vendor/pdf.min.mjs и vendor/pdf.worker.min.mjs.</div>
