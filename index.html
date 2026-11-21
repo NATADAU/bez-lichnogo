@@ -52,10 +52,11 @@ h1{font-size:25px;letter-spacing:-.8px;margin:0;font-weight:600;color:var(--clp-
 .card,.sidebar{background:var(--clp-surface);border-radius:18px;border:1px solid var(--clp-border);box-shadow:0 10px 30px #2a2a2a0d;overflow:hidden}
 .topbar{padding:13px 15px;border-bottom:1px solid var(--clp-border);display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between}
 .filename{font-size:14px;font-weight:600;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--clp-text)}
-.actions{display:flex;gap:8px;flex-wrap:wrap}
+.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .file-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--clp-border);background:var(--clp-surface);border-radius:10px;padding:10px 12px;color:var(--clp-text);font-weight:600;font-size:13px;cursor:pointer}
 .file-btn:hover{background:var(--clp-tint);border-color:var(--clp-accent-soft)}
 .file-btn input{display:none}
+.upload-hint{font-size:11px;line-height:1.35;color:var(--clp-muted);font-weight:400;max-width:280px}
 .workspace{background:var(--clp-workspace);overflow:auto;min-height:480px;padding:22px;display:flex;align-items:flex-start;justify-content:center}
 .paper{position:relative;width:min(100%,740px);background:#fff;box-shadow:0 15px 33px #2a2a2a24;touch-action:none;line-height:0;user-select:none}
 .paper canvas{width:100%;height:auto;display:block;pointer-events:none}
@@ -116,7 +117,7 @@ input[type=checkbox]{accent-color:var(--clp-accent)}
 #pickerHint.picking{color:var(--clp-accent);font-weight:600}
 </style></head><body><div class="app">
 <header class="heading"><div class="brand"><div class="brandmark">◫</div><div><h1>Без личного</h1><p>Frost Blur · цветная плашка · точные границы</p></div></div><span class="tag">Локальная обработка</span></header>
-<div class="layout"><section class="card"><div class="topbar"><div class="filename" id="filename">Демонстрационная ведомость</div><div class="actions"><button type="button" id="demo">Пример</button><label class="file-btn">Открыть PDF / изображение<input type="file" id="upload" accept="application/pdf,.pdf,image/png,image/jpeg,image/webp"></label></div></div>
+<div class="layout"><section class="card"><div class="topbar"><div class="filename" id="filename">Демонстрационная ведомость</div><div class="actions"><button type="button" id="demo">Пример</button><label class="file-btn">Открыть PDF / изображение<input type="file" id="upload" accept="application/pdf,.pdf,image/png,image/jpeg,image/webp"></label><span class="upload-hint">Один PDF-файл — до 10 страниц, размером не более 25 МБ</span></div></div>
 <div class="workspace"><div class="paper" id="paper"><canvas id="display"></canvas><div class="editlayer" id="editlayer" aria-label="Области скрытия"></div></div></div>
 <div class="footer"><span>Тяни за восемь маркеров · внутри плашки — перемещение · стрелки клавиатуры — точная подстройка</span><div class="pager"><button type="button" id="prev">←</button><strong id="pageInfo">1 из 1</strong><button type="button" id="next">→</button></div></div></section>
 <aside class="sidebar"><h2>Инструменты</h2><p class="sub">Нарисуй мышкой прямоугольник. Можно закрывать несколько столбцов независимо.</p>
