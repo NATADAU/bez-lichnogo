@@ -471,7 +471,7 @@ $('upload').addEventListener('change', async e => {
   const file = e.target.files?.[0];
   if (!file) return;
   if (file.size > 25 * 1024 * 1024) {
-    status('Файл слишком большой: максимум 25 МБ.');
+    status('Файл слишком большой (больше 25 МБ). Выберите файл меньшего размера.');
     e.target.value = '';
     return;
   }
@@ -493,7 +493,7 @@ $('upload').addEventListener('change', async e => {
       pages = pdf.numPages;
       if (pages > 10) {
         await closePdf();
-        throw new Error('Для этой версии максимум 10 страниц PDF.');
+        throw new Error('В этом PDF больше 10 страниц. Разделите документ на несколько файлов (не больше 10 страниц в каждом) и откройте их по очереди.');
       }
       pdfPage = 1;
       sourceMode = 'pdf';
